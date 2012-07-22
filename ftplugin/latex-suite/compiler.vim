@@ -139,10 +139,10 @@ function! Tex_CompileLatex()
 		endif
 		if exists('s:target')
 			call Tex_Debug('Tex_CompileLatex: execing [make! '.s:target.']', 'comp')
-			exec 'make! NO_COLOR=1 --file=/home/lw2aw/mytools/latex-makefile/Makefile '.s:target
+			exec 'make! NO_COLOR=1 --file='.g:latex_makefile.' '.s:target
 		else
 			call Tex_Debug('Tex_CompileLatex: execing [make! '.mainfname.']', 'comp')
-			exec 'make! NO_COLOR=1 --file=/home/lw2aw/mytools/latex-makefile/Makefile '.mainfname
+			exec 'make! NO_COLOR=1 --file='.g:latex_makefile.' '.mainfname
 		endif
 	endif
 	redraw!
