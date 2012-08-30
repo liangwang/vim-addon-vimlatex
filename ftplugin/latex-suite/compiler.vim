@@ -262,7 +262,8 @@ function! Tex_ViewLaTeX()
 		else
 			let appOpt = ''
 		endif
-		let execString = 'open '.appOpt.s:viewer.' $*.'.s:target
+		"let execString = 'open '.appOpt.s:viewer.' $*.'.s:target
+		let execString = 'open '.appOpt.s:viewer.' $*.pdf'
 
 	else
 		" taken from Dimitri Antoniou's tip on vim.sf.net (tip #225).
@@ -292,7 +293,8 @@ function! Tex_ViewLaTeX()
 
 		else
 
-			let execString = s:viewer.' $*.'.s:target
+			"let execString = s:viewer.' $*.'.s:target
+			let execString = s:viewer.' $*.pdf'.s:target
 
 		endif
 
@@ -406,7 +408,8 @@ function! Tex_ForwardSearchLaTeX()
 			" We must be using a generic UNIX viewer
 			" syntax is: viewer TARGET_FILE LINE_NUMBER SOURCE_FILE
 
-			let execString = 'silent! !'.viewer.' "'.mainfnameRoot.'.'.s:target.'" '.line('.').' "'.expand('%').'"'
+			"let execString = 'silent! !'.viewer.' "'.mainfnameRoot.'.'.s:target.'" '.line('.').' "'.expand('%').'"'
+			let execString = 'silent! !'.viewer.' "'.mainfnameRoot.'.pdf'.'" '.line('.').' "'.expand('%').'"'
 
 		endif
 
