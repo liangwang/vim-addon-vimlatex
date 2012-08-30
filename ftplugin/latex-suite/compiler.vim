@@ -401,7 +401,7 @@ function! Tex_ForwardSearchLaTeX()
 			elseif viewer =~ "^ *okular"
 
 				"let execString = 'silent! !'.viewer.' '.mainfnameRoot.'.dvi\#src:'.line('.').expand("%")
-				let execString = 'silent! !'.viewer.' '.mainfnameRoot.'.pdf\#src:'.line('.').expand("%")
+				let execString = 'silent! !'.viewer.' --unique '.mainfnameRoot.'.pdf\#src:'.line('.').expand("%")
 
 
 			endif
