@@ -294,7 +294,7 @@ function! Tex_ViewLaTeX()
 		else
 
 			"let execString = s:viewer.' $*.'.s:target
-			let execString = s:viewer.' $*.pdf'.s:target
+			let execString = s:viewer.' $*.pdf'
 
 		endif
 
@@ -387,7 +387,8 @@ function! Tex_ForwardSearchLaTeX()
 
 				let execString = 'silent! !'.viewer.' -name xdvi -sourceposition "'.line('.').' '.expand("%").'"'.
 							\ ' -editor "gvim --servername '.v:servername.' --remote-silent +\%l \%f" '.
-							\ mainfnameRoot.'.dvi'
+							\ mainfnameRoot.'.pdf'
+							"\ mainfnameRoot.'.dvi'
 
 			elseif viewer =~ "^ *kdvi"
 
@@ -399,7 +400,8 @@ function! Tex_ForwardSearchLaTeX()
 
 			elseif viewer =~ "^ *okular"
 
-				let execString = 'silent! !'.viewer.' '.mainfnameRoot.'.dvi\#src:'.line('.').expand("%")
+				"let execString = 'silent! !'.viewer.' '.mainfnameRoot.'.dvi\#src:'.line('.').expand("%")
+				let execString = 'silent! !'.viewer.' '.mainfnameRoot.'.pdf\#src:'.line('.').expand("%")
 
 
 			endif
