@@ -353,7 +353,9 @@ function! Tex_ForwardSearchLaTeX()
 	if (has('win32') && (viewer =~? "^ *yap\( \|$\)"))
 
 		let execString = 'silent! !start '. viewer.' -s '.line('.').expand('%').' '.mainfnameRoot
-
+	
+	elseif (has('win32') && (viewer =~? "^ *sumatrapdf"))
+		let execString = 'silent! !start '.viewer.' -reuse-instance '.mainfnameRoot.'.pdf -forward-search '.expand("%").' '.line('.')
 
 	elseif (has('macunix') && (viewer =~ "^ *\(Skim\|PDFView\|TeXniscope\)\( \|$\)"))
 		" We're on a Mac using a traditional Mac viewer
